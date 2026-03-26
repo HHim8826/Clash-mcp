@@ -11,6 +11,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "prepack": "npm run build",
     "typecheck": "tsc --noEmit",
     "dev": "tsx src/index.ts",
     "test": "vitest run tests",
@@ -18,6 +19,10 @@
     "e2e:local": "tsx scripts/e2e-local.ts",
     "release:gate": "node scripts/verify-release-gate.mjs"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HHim8826/Clash-mcp.git"
