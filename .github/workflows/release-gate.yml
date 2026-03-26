@@ -1,0 +1,37 @@
+name: Release Gate
+
+on:
+  workflow_dispatch:
+    inputs:
+      e2e_report_path:
+        description: "Path to E2E report markdown"
+        required: false
+        default: "docs/e2e-report.md"
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Validate release gate checklist and report
+        env:
+          E2E_REPORT_PATH: ${{ github.event.inputs.e2e_report_path }}
+        run: npm run release:gate

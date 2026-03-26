@@ -1,0 +1,43 @@
+{
+  "name": "clash-mcp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": {
+    "clash-mcp": "dist/index.js"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run tests",
+    "test:watch": "vitest tests",
+    "e2e:local": "tsx scripts/e2e-local.ts",
+    "release:gate": "node scripts/verify-release-gate.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HHim8826/Clash-mcp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/HHim8826/Clash-mcp/issues"
+  },
+  "homepage": "https://github.com/HHim8826/Clash-mcp#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.1"
+  }
+}
