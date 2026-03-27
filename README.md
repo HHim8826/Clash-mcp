@@ -52,6 +52,50 @@ Build and run:
 npm run build
 npm start
 
+## Quick start (npx MCP config)
+
+Use the following `mcpServers` configuration to run the server with `npx`.
+
+### OpenCode
+
+Add this block to your OpenCode MCP config file:
+
+```json
+{
+  "mcpServers": {
+    "clash-mcp": {
+      "command": "npx",
+      "args": ["-y", "clash-mcp@latest"],
+      "env": {
+        "MIHOMO_BASE_URL": "http://127.0.0.1:9090",
+        "MIHOMO_SECRET": "your_mihomo_secret",
+        "MIHOMO_TIMEOUT_MS": "5000"
+      }
+    }
+  }
+}
+```
+
+### Claude Code
+
+Add this block to your Claude Code MCP JSON config:
+
+```json
+{
+  "mcpServers": {
+    "clash-mcp": {
+      "command": "npx",
+      "args": ["-y", "clash-mcp@latest"],
+      "env": {
+        "MIHOMO_BASE_URL": "http://127.0.0.1:9090",
+        "MIHOMO_SECRET": "your_mihomo_secret",
+        "MIHOMO_TIMEOUT_MS": "5000"
+      }
+    }
+  }
+}
+```
+
 ## Test
 
 Run unit tests:
