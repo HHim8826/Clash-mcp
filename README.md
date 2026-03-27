@@ -54,19 +54,19 @@ npm start
 
 ## Quick start (npx MCP config)
 
-Use the following `mcpServers` configuration to run the server with `npx`.
+Use the following configuration to run the server with `npx`.
 
 ### OpenCode
 
-Add this block to your OpenCode MCP config file:
+Add this block to your `~/.config/opencode/opencode.jsonc` file:
 
 ```json
 {
-  "mcpServers": {
+  "mcp": {
     "clash-mcp": {
-      "command": "npx",
-      "args": ["-y", "clash-mcp@latest"],
-      "env": {
+      "type": "local",
+      "command": ["npx", "-y", "clash-mcp@latest"],
+      "environment": {
         "MIHOMO_BASE_URL": "http://127.0.0.1:9090",
         "MIHOMO_SECRET": "your_mihomo_secret",
         "MIHOMO_TIMEOUT_MS": "5000"
